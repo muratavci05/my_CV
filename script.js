@@ -5,7 +5,8 @@
 const pdfBtn = document.getElementById("pdfBtn");
 const languageSelect=document.getElementById("language");
 
-const keys=["descriptionPart","educationPart","coursesPart","projectsPart","speakLanguangePart"];
+const keys=["descriptionPart","educationPart","coursesPart","projectsPart","speakLanguangePart","skillsPart","locationPart","englishPart",
+            "turkishPart","anadilPart",];
 
 const dictionary=[
   {
@@ -33,6 +34,32 @@ const dictionary=[
       tr: "DİLLER",
       en: "LANGUAGES",
   },
+  {
+    key:"skillsPart",
+    tr: "YETENEKLER",
+    en: "SKILLS",
+  },
+  {
+    key:"locationPart",
+    tr: "TÜRKİYE",
+    en: "TURKEY",
+  },
+  {
+    key:"englishPart",
+    tr: "İngilizce",
+    en: "English",
+  },
+  {
+    key:"turkishPart",
+    tr: "Türkçe",
+    en: "Turkish",
+  },
+  {
+    key:"anadilPart",
+    tr: "Anadil",
+    en: "Native",
+  },
+
 ];
 
 
