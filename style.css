@@ -17,6 +17,42 @@ body{
     background-color: #ddd;
 
 }
+/* pdf button and languange button start  */
+.topContainer{ 
+margin:auto;
+margin-top:20px;
+width:794px;
+display:flex;
+justify-content:flex-end;
+gap:20px;
+
+}
+
+#pdfBtn{
+    padding:5px 40px;
+    border:none;
+    color:white;
+    border-radius: 5px;
+    background-color: rgb(76, 149, 233);
+    transition: all 0.2sn linear;
+    cursor:pointer;
+
+    
+}
+
+#pdfBtn:hover{
+    box-shadow: 2px 1px 5px 1px rgb(73, 60, 60);
+
+
+}
+
+#languange{
+    padding: 0px 30px;
+    border-radius: 5px;
+}
+
+
+/* pdf button and languange button end  */
 
 .container{
     width: 794px;
@@ -26,14 +62,8 @@ body{
     background-color: white;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.306);
     padding: 30px 25px;
-    padding-bottom: 50px;
+    padding-bottom: 75px;
 }
-
-.containerButtons{
-float: right;
-padding-bottom: 5px;
-}
-
 .header{
     width: 100%;
     height: 150px;
@@ -89,6 +119,7 @@ padding-bottom: 5px;
     min-height: 300px;
     margin-top: 10px;
     display: flex;
+
 
 }
 /*   content right  */

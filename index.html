@@ -7,13 +7,30 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/9315cc9aec.js" crossorigin="anonymous"></script>
+
+    <!-- CDN for export to pdf  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer"></script>
+
+
 </head>
 <body>
-<div class="container">
-    <div class="containerButtons">
-    <button value="print" onclick="window.print()">print</button>
-    <button>EN</button>      
-    </div>
+
+ <!-- make to pdf button start-->
+    
+<div class="topContainer">
+    <button id="pdfBtn" >Export to PDF</button>
+    <select id="language">
+        <option value="tr" selected>TR</option>
+        <option value="en">EN</option>
+    </select>
+</div>
+
+ <!-- make to pdf button start-->
+ <!-- container field will be export to pdf...we defined "id" for this. -->
+
+ <div class="container" id="myCv">  
 
                 <!--header section start-->
     <div class="header">
@@ -21,13 +38,13 @@
             <img src="./myphoto.jpg" alt="">
         </div>
         <div class="profileInfoContainer">
-             <h1>Murat AVCI</h1>
+             <h1 id="nameSurname">Murat AVCI</h1>
              <h4>Frontend Developer</h4>
-             <p>2017 yılında Google SEO ve Facebook Business üzerlerine eğitimler aldım. 
-                2017'den itibaren "Dijital pazarlama uzmanı" olarak çalıştım.
-                Şuan Frontend Developer olmak ve bu alanda ilerlemek adına eğitim almaya başladım. 
-                İyi bir "Frontend Developer" olmak için azimle çalışıyorum. 
-                Projelerimi ve çalışmalarımı "github" linkinden inceleyebilirsiniz. </p>
+             <p id="descriptionPart">Merhaba ben Murat AVCI. Dijital Pazarlama Uzmanı'yım kariyerime Frontend Developer olarak devam etmek
+                adına ReactJS Frontend Developer konusunda ve eğitim aldım,çalışmalarda bulundum ve geliştirmeye de devam ediyorum. Her yazdığım proje içerisinde
+                karşılaştığım sorunların çözümü, projenin tamamlanması, yeni kaynakların ve kütüphanelerin kullanılması beni heyecanlandırıyor ve motivasyonumu arttırıyor.
+                
+             </p>
         </div>
     </div>
                 <!--header section start-->
@@ -38,7 +55,7 @@
                 <div>
                     <div class="emailContent"><i class="fa-solid fa-envelope"></i><a href="mailto:js.muratavci@google.com">js.muratavci@gmail.com</a></div>
                     <div class="telephoneContent"><i class="fa-solid fa-phone"></i><a href="tel:+905551234567">+90 (555) 123-4567</a></div>
-                    <div class="location"><i class="fa-solid fa-location-dot"> </i> Ankara / TÜRKİYE</div>
+                    <div id="locationPart" class="location"><i class="fa-solid fa-location-dot"> </i> Ankara / TÜRKİYE</div>
                     <div class="linkedin"><i class="fa-brands fa-linkedin"></i><a target="_blank" href="https://www.linkedin.com/in/murat-avci-62253a98/">Linkedin</a></div>
                     <div class="github"><i class="fa-brands fa-github"></i><a target="_blank" href="https://github.com/muratavci05">Github</a></div>
                         
@@ -46,13 +63,20 @@
                 <!-- contact options end -->
 
                 <!-- skills section start-->
-                <h3 class="leftContentSkills" >YETENEKLER</h3>
+                <h3 class="leftContentSkills" id="skillsPart">YETENEKLER</h3>
                  <div class="skills">
                     <p class="skillsBox">HTML5</p>
                     <p class="skillsBox">CSS3</p>
                     <p class="skillsBox">Bootstrap</p>
                     <p class="skillsBox">JavaScript</p>
                     <p class="skillsBox">React JS.</p>
+                    <p class="skillsBox">Redux</p>
+                    <p class="skillsBox">React Router Dom</p>  
+                    <p class="skillsBox">TypeScript</p>
+                    <p class="skillsBox">SCSS</p>
+                    <p class="skillsBox">TailwindCss</p> 
+                    <p class="skillsBox">Material UI</p>   
+                    <p class="skillsBox">Semantic UI</p>              
                     <p class="skillsBox">Git</p>
                     <p class="skillsBox">React Native</p>
                   </div>
@@ -61,7 +85,7 @@
 
                 <!-- Languange section Start-->
 
-                <h3 class="leftContentSkills" >DİLLER</h3>
+                <h3 class="leftContentSkills" id="speakLanguangePart">DİLLER</h3>
                     <div class="languangeContainer">
                         <p class="languangeContainerTitle">İngilizce</p>
                         <p class="languangeContainerDetail"><i>Elemantary</i> </p>
@@ -75,7 +99,7 @@
 
              </div>
              <div class="rightContentContainer">
-                <h1 class="companentTitle">EĞİTİM</h1>
+                <h1 class="companentTitle" id="educationPart">EĞİTİM</h1>
                 <div class="contentCompanent">
                     
                     <h3 class="companentItemTitle">Türk Hava Kurumu Üniversitesi</h3>
@@ -107,11 +131,105 @@
                     
                     <h3 class="companentItemTitle developerTitle">UDEMİG YAZILIM EĞİTİMİ</h3>
                     <h5 class="companentItemSubTitle developerTitle"> FRONTEND DEVELOPER | <span class="frontendTitle">HTML3 + CSS3 + JavaScript + React</span> </h5>
-                    <h6 class="companentItemInfo"><small>Haziran 2022 - devam ediyor</small> </h6>
+                    <h6 class="companentItemInfo"><small>Haziran-Kasım 2022</small> </h6>
+
+                </div>
+                <div class="contentCompanent">
+                    
+                    <h3 class="companentItemTitle developerTitle">Digiens Akademi</h3>
+                    <h5 class="companentItemSubTitle developerTitle"> Digital Marketing Specialist | <span class="frontendTitle">Google SEO,Google ADS,Facebook ADS,Instagram ADS,Linkedin ADS</span> </h5>
+                    <h6 class="companentItemInfo"><small>Şubat-Nisan 2019</small> </h6>
 
                 </div>
 
                 <h1 class="companentTitle paddingTop">PROJELERİM</h1>
+
+                <!-- <div class="contentCompanent">
+                    
+                    <h3 class="companentItemTitle project">ReactJS ApiTutorial projesi</h3>
+                    <h6 class="companentItemSubTitle projectGithub"> <a href="https://github.com/muratavci05/reactApi_v1" target="_blank">Proje Linki</a></h6>
+                    <h5 class="companentItemInfo"> ReactJS projesi ile bir backend API'ye nasıl bağlanılır. 
+                        <h6><ul><li>Login işlemi dahil uzak Api'ye bağlanılmıştır. Local-Storage token oluşturma işlemi yapılmıştır.</li></ul></h6>
+                        <h6><ul><li>Axios ile ağ istekleri yapma adına axios ait github sayfası ve stackOverFlow kaynağından yararlandım.  </li></ul></h6>
+                        
+                    
+                    </h5>
+                    <h6><ul><li>Projede ReactJS + React-Router-Dom, Redux, Axios , React-Icons, Bootstrap5 ve Json-Server kullanılmıştır.</li></ul></h6>
+                </div> -->
+
+                <div class="contentCompanent">
+                    
+                    <h3 class="companentItemTitle project">ReactJS ContactApp Projesi </h3>
+                    <h6 class="companentItemSubTitle projectGithub"> <a href="https://github.com/muratavci05/contactApp" target="_blank">Proje Linki</a></h6>
+                    <h5 class="companentItemInfo"> Tasarımı,kodlama yapısı itibari ile tamamen tarafımdan özgün olarak kurgulanmış ve hazırlanmış bir projedir.Geliştirile
+                        bilir bir yapıya sahiptir.  
+                        <h6><ul><li>Redux yapısı ile stateler bir yerde toplanılarak tasarruf sağlanmıştır.</li></ul></h6>
+                        <h6><ul><li>Proje hazırlanır iken search kısmının oluşturma şekli ve farklı bir sayfaya içeriklerinin modal verisi olarak çekilmesi (koşullu render,
+                            props taşıma şekli) proje içerisinde beni zorladı. stackOverFlow ve youtube'dan yaptığım araştırmalardan yola çıkarak projeyi tamamladım;
+                        </li></ul></h6>
+                        <h6><ul><li>Search Kısmı: Özelleştirilebilir bir yapısı ile isim,soyisim (firs,last) iki farklı içerik sorgusu ile çalıştırılabilir şekilde hazırlanmıştır.
+                        </li></ul></h6>
+                        <h6><ul><li>Detail butonu hakkında: Projede yer alan detailModal sistemi, farklı bir sayfa içeriklerinin modal olarak kullanılarak
+                            kurgulanması üzerine oluşturulmuştur.İlgili state'lerin props taşıma ve koşullu render kurgusu ve sistemi ile farklı bir sayfa verilerinin
+                            modal olarak çalıştırılması sağlanmıştır.
+                        </li></ul></h6>
+                       
+                    
+                    </h5>
+                    <h6><ul><li>Projede ReactJS + React-Router-Dom, Redux, Axios, React-Icons, Bootstrap5 ve Json-Server kullanılmıştır.</li></ul></h6>
+                </div>
+
+
+                <div class="contentCompanent">
+                    
+                    <h3 class="companentItemTitle project">ReactJS Kütüphane (Library) Projesi</h3>
+                    <h6 class="companentItemSubTitle projectGithub"> <a href="https://github.com/muratavci05/react-library" target="_blank">Proje Linki</a></h6>
+                    <h5 class="companentItemInfo"> Kitap Ekle,Kitap Silme,Kitap Bilgisi Güncelleme (kitap adı,yazar adı,isbn,kategori), Kategori Ekleme,Kategori Silme,Kategori Güncelleme
+                        dinamik yapısı eklenmiş Modal ve looading yapısı ile effectif bir yapı haline gelmesi sağlanmıştır.
+                        <h6><ul><li> Kategori id,Kitap id nin number-string durumu eşleşme problemi yaptığı için güncelleme yapılamamasına neden oluyordu...stackoverFlow ve github 
+                        kaynaklarından yararlanıldı</li></ul></h6>
+                        <h6><ul><li> Axios üzerinden sürekl get atılarak oluşan server yoğunluğunu en aza indirmek ve yeniden güncellemek adına react-redux fonksiyonları araştırması
+                        yapıldı, Reducer yapısı (fonksiyonlar) oluşturularak sürekli get alma durumundan ver server yoğunluğundan tasarruf edildi.</li></ul></h6>
+                       
+                        <h6><ul><li> Redux yapısı ile stateleri merkezi bir yerde toplayarak yönetme konusunda tasarruflar sağlandı.</li></ul></h6>
+                        <h6><ul><li> Editlenen ve silinen işlemlerin sonunda önceki bilgi browser yenilenmesi yapılmadan kaybolmuyordu, eski ve yeni bilgiye ait güncel hal yenileme olmadan
+                        düzelmiyordu( bu arada db.json kısmında ise veritabanı verileri doğru ve güncellenebiliyordu) stackoverFlow,github,youtube notlarından yararlanılarak "dispatch"
+                        fonksiyonu ile çözüm bulundu.</li></ul></h6>
+                    
+                    </h5>
+                    <h6><ul><li>Projede ReactJS + React-Router-Dom, Redux, Axios,Bootstrap 5 ve Json-Server kullanılmıştır.</li></ul></h6>
+                </div>
+
+                <div class="contentCompanent">
+                    
+                    <h3 class="companentItemTitle project">ReactJS ile Fake API ile e-Ticaret Mağazası projesi</h3>
+                    <h6 class="companentItemSubTitle projectGithub"> <a href="https://github.com/muratavci05/react-reduxe-Ecommerce" target="_blank">Proje Linki</a></h6>
+                    <h5 class="companentItemInfo">ReactJS ile birlikte ; Redux,React-Router-Dom,Axios,Semantic UI,FakeApiStore kullanılarak oluşturulmuş bir projedir.Fake bir API ile Fake bir e-Ticaret
+                        sitesi hazırlanmıştır.
+                        
+                    </h5>
+                    <h6><ul><li>Projede HTML5, ReactJS kullanılmıştır.</li></ul></h6>
+                </div>
+
+                <div class="contentCompanent">
+                    
+                    <h3 class="companentItemTitle project">React JS ile Basit bir TodoAPP projesi yapılmıştır.</h3>
+                    <h6 class="companentItemSubTitle projectGithub"> <a href="https://github.com/muratavci05/TodoApp" target="_blank">Proje Linki</a></h6>
+                    <h5 class="companentItemInfo">Html ana iskeletti bulunmakta olup, React JS ile dinamik hale getirilmiştir, LocalStorage kullanılarak kişiye özel bir uygulama
+                        gibi kullanması sağlanmıştır.
+                        
+                    </h5>
+                    <h6><ul><li>Projede HTML5, ReactJS kullanılmıştır.</li></ul></h6>
+                </div>
+                <div class="contentCompanent">
+                    
+                    <h3 class="companentItemTitle project"> ReactJS & Tailwind ile basit bir hava durumu uygulaması yapma</h3>
+                    <h6 class="companentItemSubTitle projectGithub"> <a href="https://github.com/muratavci05/react-weatherApp" target="_blank">Proje Linki</a></h6>
+                    <h5 class="companentItemInfo">Html ile çizilmiş, css şekillendirmeleri ve sayfa yerleşimleri yapılmış, 
+                        React JS ile hava durmu api'si çekilerek çalışır hale getirilmiştir. 
+                    </h5>
+                    <h6><ul><li>Projede HTML, CSS, ReactJS ve Tailwind kullanılmıştır.</li></ul></h6>
+                </div>
                 <div class="contentCompanent">
                     
                     <h3 class="companentItemTitle project">JavaScript ile analog saat yapılması, buton ile detaylı background değiştirme</h3>
@@ -131,6 +249,8 @@
                     </h5>
                     <h6><ul><li>Projede HTML, CSS ve JavaScript kullanılmıştır.</li></ul></h6>
                 </div>
+
+            
                 <div class="contentCompanent">
                     
                     <h3 class="companentItemTitle project">Bootstrap ile "responsive" türkçe Site Tasarımı</h3>
@@ -177,6 +297,8 @@
          </div>
          
 </div>
- 
+
+<script src="script.js"></script>
+<script src="dictionary.js"></script> 
 </body>
 </html>
