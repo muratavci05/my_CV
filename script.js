@@ -5,18 +5,33 @@
 const pdfBtn = document.getElementById("pdfBtn");
 const languageSelect=document.getElementById("language");
 
-const keys=["descriptionPart","educationPart"];
+const keys=["descriptionPart","educationPart","coursesPart","projectsPart","speakLanguangePart"];
 
 const dictionary=[
   {
     key: "descriptionPart",
-    tr: "Merhaba ben Murat AVCI. Frontend Developer olarak çalışıyorum",
-    en: "Hi, I'm Murat AVCI. I've been working as a Frontend Developer for 1 year",
+    tr: " Merhaba, ben Murat AVCI, dijital pazarlama uzmanıyım. Kariyerime Frontend Developer olarak devam etmeye karar verdim. Kendimi bu alanda yetiştirmek için her gün kararlılıkla çalışmaya ve projeler geliştirmeye devam ediyorum.",
+    en: "Hello, I'm Murat AVCI, I'm a digital marketing specialist. I decided to continue my career as a Frontend Developer. In order to educate myself in this field, I continue to work with determination and develop projects every day.",
   },
   {
     key: "educationPart",
     tr: "EĞİTİM",
     en: "EDUCATION",
+  },
+  {
+    key: "coursesPart",
+    tr: "KURSLARIM",
+    en: "COURSES",
+  },
+  {
+    key: "projectsPart",
+    tr: "PROJELERİM",
+    en: "PROJECTS",
+  },
+  {
+      key:"speakLanguangePart",
+      tr: "DİLLER",
+      en: "LANGUAGES",
   },
 ];
 
