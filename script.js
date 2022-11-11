@@ -11,7 +11,7 @@ const keys=["descriptionPart","educationPart","coursesPart","projectsPart","spea
 const dictionary=[
   {
     key: "descriptionPart",
-    tr: " Merhaba, ben Murat AVCI, dijital pazarlama uzmanıyım. Kariyerime Frontend Developer olarak devam etmeye karar verdim. Kendimi bu alanda yetiştirmek için her gün kararlılıkla çalışmaya ve projeler geliştirmeye devam ediyorum.",
+    tr: "Merhaba, ben Murat AVCI, dijital pazarlama uzmanıyım. Kariyerime Frontend Developer olarak devam etmeye karar verdim. Kendimi bu alanda yetiştirmek için her gün kararlılıkla çalışmaya ve projeler geliştirmeye devam ediyorum.",
     en: "Hello, I'm Murat AVCI, I'm a digital marketing specialist. I decided to continue my career as a Frontend Developer. In order to educate myself in this field, I continue to work with determination and develop projects every day.",
   },
   {
